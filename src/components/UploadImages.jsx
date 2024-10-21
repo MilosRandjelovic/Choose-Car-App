@@ -1,12 +1,12 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
-import { storage } from "./../../../configs/firebaseConfig";
+import { storage } from "./../../configs/firebaseConfig";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { useEffect, useState } from "react";
 import { IoMdCloseCircle } from "react-icons/io";
-import { db } from "./../../../configs";
-import { CarImages } from "./../../../configs/schema";
+import { db } from "./../../configs";
+import { CarImages } from "./../../configs/schema";
 import { eq } from "drizzle-orm";
 function UploadImages({ triggleUploadImages, setLoader, carInfo, mode }) {
   const [selectedFileList, setSelectedFileList] = useState([]);
@@ -42,7 +42,6 @@ function UploadImages({ triggleUploadImages, setLoader, carInfo, mode }) {
   };
 
   const onImageRemoveFromDB = async (image, index) => {
-    // eslint-disable-next-line no-unused-vars
     const result = await db
       .delete(CarImages)
       .where(eq(CarImages.id, carInfo?.images[index]?.id))
@@ -62,7 +61,6 @@ function UploadImages({ triggleUploadImages, setLoader, carInfo, mode }) {
       };
 
       await uploadBytes(storageRef, file, metaData)
-        // eslint-disable-next-line no-unused-vars
         .then((snapShot) => {
           console.log("Uploaded File");
         })

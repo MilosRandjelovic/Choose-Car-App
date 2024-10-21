@@ -12,7 +12,7 @@ import { db } from "./../../configs";
 import { CarImages, CarListing } from "./../../configs/schema";
 import TextAreaField from "./components/TextAreaField";
 import IconField from "./components/IconField";
-import UploadImages from "./components/UploadImages";
+import UploadImages from "../components/UploadImages";
 import { BiLoaderAlt } from "react-icons/bi";
 import { toast } from "sonner";
 import { useNavigate, useSearchParams } from "react-router-dom";
